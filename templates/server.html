@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}server{% endblock %}
+{% block content %}
+<p>Введите id bcp</p>
+<form action="/project/server/recovery" method="post">
+    <input type="text" name="projectPath" value="{{project_name}}" readonly>
+    <input type="text" name="serverPath" value="{{server_name}}" readonly>
+    <input type="text" name="bcp_id">
+    <button type="submit">Восстановить</button>
+</form>
+<h1>Список bcps:</h1>
+{% for bcp in list_bcps %}
+<p>{{ bcp }}</p>
+{% endfor %}
+{% endblock %}

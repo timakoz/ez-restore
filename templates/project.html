@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}project{% endblock %}
+
+{% block content %}
+<h1>Список серверов:</h1>
+{% for name_ip in description %}
+<p>{{ name_ip[0] }} {{ name_ip[1] }}</p>
+{% endfor %}
+<form action="/project/server" method="post">
+    <input type="text" name="projectPath" value="{{project_name}}" readonly>
+    <select name="item">
+        {% for item in items %}
+        <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Перейти</button>
+</form>
+
+
+
+
+{% endblock %}
